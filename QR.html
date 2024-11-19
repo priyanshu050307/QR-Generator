@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Maker</title>
+    <style>
+        
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        
+        h1{
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 200px;
+            
+        }
+        button{
+            margin-left: 43%;
+            height: 50px;
+            width: 200px;
+            margin-top: 40px;
+            font-size: 20px;
+            background-color: blue;
+            color: white;
+
+        }
+        input{
+            margin-left: 36%;
+            width: 400px;
+            margin-top: 20px;
+            height: 20px;
+        }
+        canvas{
+            margin-left: 43%;
+        }
+
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>   
+</head>
+<body>
+    
+    <h1>QR Code Generator</h1>
+    <canvas id="qr-code"></canvas>
+    <input type="text" id="link" placeholder="Enter your link here"><br>
+    <button id="generate">Get QR</button><br>
+    
+
+<script>
+    document.getElementById('generate').addEventListener('click', function() {
+        const link = document.getElementById('link').value;
+        const qr = new QRious({
+            element: document.getElementById('qr-code'),
+            value: link,
+            size: 200 
+        });
+    });
+</script>
+</body>
+
+</html>
